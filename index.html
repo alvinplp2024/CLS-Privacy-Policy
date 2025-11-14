@@ -1,15 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLS Luxury Cars - Privacy Policy</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-        h1, h2 { color: #0D4A3A; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #0D4A3A 0%, #1B4D3E 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            padding: 30px;
+            text-align: center;
+            color: #0D4A3A;
+        }
+        .content {
+            padding: 40px;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #0D4A3A;
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #D4AF37;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul {
+            margin: 15px 0 15px 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .last-updated {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #D4AF37;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .contact-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .header { padding: 20px; }
+            .content { padding: 25px; }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.2em; }
+        }
     </style>
 </head>
 <body>
-    <h1>Privacy Policy for CLS Luxury Cars</h1>
-    <p><strong>Last updated:</strong> November 2025</p>
+    <div class="container">
+        <div class="header">
+            <h1>Privacy Policy</h1>
+            <p style="margin: 0; font-size: 1.1em;">CLS Luxury Cars</p>
+        </div>
+        <div class="content">
+            <div class="last-updated">
+                <strong>Last updated:</strong> November 2025
+            </div>
 
     <h2>1. Information We Collect</h2>
     <p>We collect information you provide when you:</p>
@@ -49,11 +124,15 @@
 
     <h2>6. Contact Us</h2>
     <p>For privacy questions, contact us:</p>
-    <p>Email: salimcornelius@gmail.com<br>
-    Phone: +254 799 399 888<br>
-    Address: Mombasa, Kenya</p>
+    <div class="contact-info">
+        <p><strong>📧 Email:</strong> salimcornelius@gmail.com</p>
+        <p><strong>📞 Phone:</strong> +254 799 399 888</p>
+        <p><strong>📍 Address:</strong> Mombasa, Kenya</p>
+    </div>
 
     <h2>7. Changes to This Policy</h2>
     <p>We may update this policy. We'll notify users of significant changes through the app.</p>
+        </div>
+    </div>
 </body>
 </html>
