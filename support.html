@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLS Cars Support Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #03150f;
+      --bg-rich: #0a2f24;
+      --panel: #0f3f30;
+      --panel-soft: #134d3b;
+      --gold: #d4af37;
+      --gold-soft: #f1d67a;
+      --ink: #eaf3ef;
+      --muted: #c2d4cb;
+      --line: rgba(212, 175, 55, 0.24);
+      --ok: #6bd2a7;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Outfit", sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.16), transparent 35%),
+        radial-gradient(circle at 80% 0%, rgba(107, 210, 167, 0.12), transparent 40%),
+        linear-gradient(140deg, var(--bg-deep), var(--bg-rich));
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 28px 18px;
+    }
+
+    .shell {
+      max-width: 980px;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: linear-gradient(165deg, rgba(11, 46, 35, 0.95), rgba(8, 35, 27, 0.96));
+      animation: fade-in 420ms ease;
+    }
+
+    .hero {
+      padding: 44px 34px 30px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(120deg, rgba(212, 175, 55, 0.18), rgba(15, 63, 48, 0.65));
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      border: 1px solid rgba(241, 214, 122, 0.35);
+      border-radius: 999px;
+      padding: 6px 12px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+      line-height: 1.15;
+      margin-bottom: 10px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .content {
+      padding: 28px 22px 30px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(160deg, rgba(19, 77, 59, 0.92), rgba(12, 55, 42, 0.94));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .card h2 {
+      font-size: 1.08rem;
+      margin-bottom: 14px;
+      color: var(--gold-soft);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .channel {
+      background: rgba(2, 24, 18, 0.35);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #acd0bf;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .value {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-top: 6px;
+    }
+
+    ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      position: absolute;
+      left: 0;
+      top: 9px;
+    }
+
+    .note {
+      background: rgba(2, 24, 18, 0.36);
+      border-left: 3px solid var(--ok);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-radius: 10px;
+      border: 1px solid rgba(212, 175, 55, 0.32);
+      background: rgba(212, 175, 55, 0.1);
+      color: #ffe8a8;
+      font-size: 0.92rem;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 14px;
+      transition: transform 120ms ease, background-color 120ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(212, 175, 55, 0.16);
+    }
+
+    .footer {
+      padding: 16px 20px 24px;
+      color: #a9c0b5;
+      font-size: 0.85rem;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        padding: 30px 20px 20px;
+      }
+
+      .content {
+        padding: 18px 14px 20px;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <span class="badge">CLS Cars Support</span>
+      <h1>Fast, Clear Help For Cars, Chat, and Insurance</h1>
+      <p>
+        This support center covers account access, vehicle listings, in-app chat, notifications,
+        and insurance payment issues for CLS Cars on iPhone and Android.
+      </p>
+    </section>
+
+    <section class="content">
+      <article class="card">
+        <h2>Primary and Secondary Support Channels</h2>
+        <div class="grid-2">
+          <div class="channel">
+            <div class="label">Primary Support (Recommended)</div>
+            <a class="value" href="mailto:alvinondieki5@gmail.com?subject=CLS%20Cars%20Support%20Request">alvinondieki5@gmail.com</a>
+            <p class="small">Best for login, account, listing, chat, and insurance follow-up.</p>
+          </div>
+          <div class="channel">
+            <div class="label">Secondary Support</div>
+            <a class="value" href="tel:+254700921906">+254 700 921 906</a>
+            <p class="small">Use for urgent payment or account access escalation.</p>
+          </div>
+        </div>
+        <div class="note">
+          Support hours: Monday to Saturday, 8:00 AM to 6:00 PM (EAT). Typical response time is within 24 hours.
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>What We Support</h2>
+        <ul>
+          <li>Account creation, login, email verification, and password reset</li>
+          <li>Vehicle browsing issues, missing images, and listing detail questions</li>
+          <li>In-app chat and message delivery or notification problems</li>
+          <li>Insurance application guidance and M-Pesa payment status checks</li>
+          <li>Profile updates, location details, and account data requests</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Before You Contact Support</h2>
+        <ul>
+          <li>Your account email address used in the app</li>
+          <li>Device model and OS version (iOS/Android)</li>
+          <li>A short issue summary and exact steps to reproduce</li>
+          <li>Screenshot of the error (if available)</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Quick Answers</h2>
+        <ul>
+          <li><strong>Insurance payment still pending?</strong> Payment confirmation can take up to a few minutes before status updates.</li>
+          <li><strong>Can I browse without login?</strong> Yes, core car browsing works without sign-in. Login is needed for chat and account actions.</li>
+          <li><strong>Need account or data deletion?</strong> Use the delete request page below.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Policy and Data Links</h2>
+        <p class="small">Use these links for privacy and account-data requests.</p>
+        <div class="links">
+          <a class="btn" href="https://alvinplp2024.github.io/CLS-Privacy-Policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+          <a class="btn" href="https://alvinplp2024.github.io/CLS-Privacy-Policy/delete_account.html" target="_blank" rel="noopener noreferrer">Delete Account</a>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      CLS Cars Support Center • Last updated: February 2026
+    </footer>
+  </main>
+</body>
+</html>
